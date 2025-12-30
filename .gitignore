@@ -1,0 +1,11 @@
+# Python basura
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Reportes de prueba (opcional, si no quieres subir tus .txt)
+*.txt
+
+# Archivos de sistema
+Thumbs.db
+desktop.ini
