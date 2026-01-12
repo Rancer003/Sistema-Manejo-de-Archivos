@@ -158,16 +158,25 @@ lista_carpeta = []
 exit = 0
 
 #definimos la carpeta que se va a organizar
-directorio = input("ingrese la ruta de la carpeta con la que trabajar(0 para Default):")
-print("\n")
+while exit == 0:
+    directorio = input("ingrese la ruta de la carpeta con la que trabajar(0 para Default/exit para salir):").lower()
+    print("\n")
 
-if directorio == "0":
-        directorio = Path("D:\\Usuario\\descargas")
+    if directorio != "exit":
+        if directorio == "0":
+                directorio = "D:\\Usuario\\descargas"
 
-while not Path(directorio).exists(): #corroboramos la existencia de la ruta
-    directorio = input("ingrese otra ruta: ")
-    if directorio == "0":
-        directorio = Path("D:\\Usuario\\descargas")
+        while directorio != "exit" and not Path(directorio).exists(): #corroboramos la existencia de la ruta
+            directorio = input("ingrese otra ruta: ")
+            if directorio == "0":
+                directorio = "D:\\Usuario\\descargas"
+    
+    if directorio == "exit":
+        exit = 1
+    else:
+        directorio = Path(directorio)
+        print(f"Ruta validada: {directorio}")
+        break
 
     
 
